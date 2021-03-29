@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/list_fragment">
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="com.example.userregistrationapplication.fragments.list.ListFragment"
+        android:label="List"
+        tools:layout="@layout/list_fragment">
+        <action
+            android:id="@+id/action_list_fragment_to_add_fragment"
+            app:destination="@id/add_fragment" />
+        <action
+            android:id="@+id/action_list_fragment_to_updateFragment"
+            app:destination="@id/update_fragment" />
+        <action
+            android:id="@+id/action_list_fragment_to_errorFragment"
+            app:destination="@id/errorFragment" />
+        <action
+            android:id="@+id/action_list_fragment_to_topUserFragment"
+            app:destination="@id/topUserFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_fragment"
+        android:name="com.example.userregistrationapplication.fragments.add.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/add_fragment">
+        <action
+            android:id="@+id/action_add_fragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/update_fragment"
+        android:name="com.example.userregistrationapplication.fragments.update.UpdateFragment"
+        android:label="Update"
+        tools:layout="@layout/update_fragment">
+        <action
+            android:id="@+id/action_updateFragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.userregistrationapplication.model.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/errorFragment"
+        android:name="com.example.userregistrationapplication.fragments.error.ErrorFragment"
+        android:label="ErrorFragment" >
+        <action
+            android:id="@+id/action_errorFragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+        <action
+            android:id="@+id/action_errorFragment_to_add_fragment"
+            app:destination="@id/add_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/topUserFragment"
+        android:name="com.example.userregistrationapplication.fragments.topUser.TopUserFragment"
+        android:label="TopUserFragment" >
+        <action
+            android:id="@+id/action_topUserFragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+    </fragment>
+</navigation>
